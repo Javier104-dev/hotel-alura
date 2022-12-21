@@ -1,4 +1,4 @@
-package views;
+package com.alure.hotel.jdbc.views;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;

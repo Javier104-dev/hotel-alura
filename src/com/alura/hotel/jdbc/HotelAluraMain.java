@@ -1,8 +1,8 @@
-package com.alura.hotel;
+package com.alura.hotel.jdbc;
 
 import javax.swing.JFrame;
 
-import views.MenuPrincipal;
+import com.alure.hotel.jdbc.views.MenuPrincipal;
 
 
 public class HotelAluraMain {
