@@ -14,7 +14,7 @@ public class ReservasController {
 		this.reservasDao = new ReservasDao(new ConnectionFactory().recuperaConexion());
 	}
 	
-	public void guardar(Reservas reservas){
-		reservasDao.guardar(reservas);
+	public int guardar(Reservas reservas){
+		return reservasDao.guardarReserva(reservas);
 	}
 }

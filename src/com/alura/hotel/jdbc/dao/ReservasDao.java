@@ -17,7 +17,7 @@ public class ReservasDao {
 	}
 	
 	
-	 public void guardar(Reservas reservas){
+	 public Integer guardarReserva(Reservas reservas){
 		 try {
 			 final PreparedStatement statement = con.prepareStatement(
 					 "INSERT INTO RESERVAS (fecha_entrada, fecha_salida, valor, forma_pago) VALUES (?, ?, ?, ?)", 
@@ -29,10 +29,20 @@ public class ReservasDao {
 				 statement.setDouble(3, reservas.getValor());
 				 statement.setString(4, reservas.getForma_pago());
 				 statement.execute();
+				 
+				 final ResultSet resultSet = statement.getGeneratedKeys();
+				 
+				 try (resultSet) {
+	                    while (resultSet.next()) {
+	                    	reservas.setId(resultSet.getInt(1));
+	                       
+	                    }
+	                }
 
 			 }		  
 		 }catch (SQLException e) {
 			 throw new RuntimeException(e);
 		 }
+		 return reservas.getId();
 	 }
 }

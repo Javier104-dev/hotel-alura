@@ -15,6 +15,8 @@ import com.alura.hotel.jdbc.controller.ReservasController;
 import com.alura.hotel.jdbc.dao.ReservasDao;
 import com.alura.hotel.jdbc.modelo.Reservas;
 import com.toedter.calendar.JDateChooser;
+
+
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -46,8 +48,9 @@ public class ReservasView extends JFrame {
 	private JLabel labelExit;
 	private JLabel lblValorSimbolo; 
 	private JLabel labelAtras;
-	private ReservasController reservascontroller;
 	
+	private ReservasController reservascontroller;
+
 
 	/**
 	 * Launch the application.
@@ -71,6 +74,7 @@ public class ReservasView extends JFrame {
 	public ReservasView() {
 		super("Reserva");
 		this.reservascontroller = new ReservasController();
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ReservasView.class.getResource("/imagenes/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 560);
@@ -308,19 +312,9 @@ public class ReservasView extends JFrame {
 		btnsiguiente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (ReservasView.txtFechaE.getDate() != null && ReservasView.txtFechaS.getDate() != null) {		
-					RegistroHuesped registro = new RegistroHuesped();
-					java.sql.Date fechaEntrada = new java.sql.Date((txtFechaE.getDate()).getTime());
-					java.sql.Date fechaSalida = new java.sql.Date((txtFechaS.getDate()).getTime());
-
-					Double precio = Double.parseDouble(txtValor.getText());
-					Reservas reserva = new Reservas(fechaEntrada, fechaSalida, precio , txtFormaPago.getSelectedItem().toString());
-					JOptionPane.showMessageDialog(null, "Reserva registrada con exito", "Reserva confirmada", JOptionPane.WARNING_MESSAGE);
-
-
-					reservascontroller.guardar(reserva);
-					registro.setVisible(true);
-				} else {
+				if (ReservasView.txtFechaE.getDate() != null && ReservasView.txtFechaS.getDate() != null) {
+					guardarReserva();	
+				}else{
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 				}
 			}						
@@ -369,5 +363,26 @@ public class ReservasView extends JFrame {
 	        int x = evt.getXOnScreen();
 	        int y = evt.getYOnScreen();
 	        this.setLocation(x - xMouse, y - yMouse);
-}
+	    }
+	    
+	public void guardarReserva() {
+		try {
+			java.sql.Date fechaEntrada = new java.sql.Date((txtFechaE.getDate()).getTime());
+			java.sql.Date fechaSalida = new java.sql.Date((txtFechaS.getDate()).getTime());
+			Double precio = Double.parseDouble(txtValor.getText());
+			
+			Reservas reserva = new Reservas(fechaEntrada, fechaSalida, precio , txtFormaPago.getSelectedItem().toString());
+		
+			int registro_id = reservascontroller.guardar(reserva);
+			
+			RegistroHuesped registro = new RegistroHuesped(registro_id);
+			JOptionPane.showMessageDialog(null, "Registro Creado");
+			registro.setVisible(true);
+			this.setVisible(false);
+			//cerramos las ventanas
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+    
 }
