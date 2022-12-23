@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alura.hotel.jdbc.modelo.Huesped;
+import com.alura.hotel.jdbc.modelo.HuespedReserva;
+import com.alura.hotel.jdbc.modelo.Reservas;
 
 public class HuespedDao {
 	final private Connection con;
@@ -48,9 +50,11 @@ public class HuespedDao {
 			throw new RuntimeException(e);
 		}
 	}
+
 	
-	
-	public List<Huesped> huespedEnServidor (String apellido){
+	/*
+	 *
+	public List<Huesped> huespedEnServidor (Object parametroBusqueda){
 		List<Huesped> resultado = new ArrayList<>();
 		
 		try{
@@ -63,12 +67,21 @@ public class HuespedDao {
 					+ "TELEFONO, "
 					+ "ID_RESERVA "
 					+ "FROM HUESPEDES WHERE "
-					+ "APELLIDO = ?";
+					+ "(APELLIDO = ? or ID_RESERVA = ?)";
 			
 			final PreparedStatement statement = con.prepareStatement(querySelect);
 			
 			try(statement){
-				statement.setString(1, apellido);
+				//con esto depende el resultado si es un strin o un in
+				if(parametroBusqueda instanceof String) {
+				statement.setString(1, (String) parametroBusqueda);
+				statement.setString(2, (String) parametroBusqueda);
+				
+				}else if(parametroBusqueda instanceof Integer) {
+					statement.setInt(1, (int) parametroBusqueda);
+					statement.setInt(2, (int) parametroBusqueda);
+				}
+				
 				statement.execute();
 				
 				final ResultSet resulSet = statement.getResultSet();
@@ -92,4 +105,5 @@ public class HuespedDao {
 		}
 		return resultado; 
 	}
+	 */
 }

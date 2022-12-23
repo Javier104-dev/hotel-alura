@@ -9,7 +9,9 @@ import javax.swing.table.TableModel;
 
 import com.alura.hotel.jdbc.controller.HuespedesController;
 import com.alura.hotel.jdbc.controller.ReservasController;
+import com.alura.hotel.jdbc.controller.ResultadoBusquedaController;
 import com.alura.hotel.jdbc.modelo.Huesped;
+import com.alura.hotel.jdbc.modelo.HuespedReserva;
 import com.mchange.lang.StringUtils;
 
 import javax.swing.JTable;
@@ -43,8 +45,7 @@ public class Busqueda extends JFrame {
 	private DefaultTableModel modeloH;
 	private JLabel labelAtras;
 	private JLabel labelExit;
-	private HuespedesController huespedesController;
-	private ReservasController reservasController;
+	private ResultadoBusquedaController resultadoBusquedaController;
 	int xMouse, yMouse;
 
 	/**
@@ -67,9 +68,8 @@ public class Busqueda extends JFrame {
 	 * Create the frame.
 	 */
 	public Busqueda() {
-		
-		this.huespedesController = new HuespedesController();
-		this.reservasController = new ReservasController();
+
+		this.resultadoBusquedaController = new ResultadoBusquedaController();
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Busqueda.class.getResource("/imagenes/lupa2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -228,6 +228,9 @@ public class Busqueda extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//ahora acepta numerico como string, la verificacion se hace en la peticion y puede buscar con ambos
+				resultadoBusqueda(txtBuscar.getText());
+				/*
 				//con este metodo verificamos si es un numero o un string, lo usamos como un if
 				String textoIngresado = txtBuscar.getText();
 				try {
@@ -236,6 +239,7 @@ public class Busqueda extends JFrame {
 				} catch (NumberFormatException ex) {
 				  resultadoBusquedaH(textoIngresado);
 				}
+				*/
 			}
 		});
 
@@ -296,9 +300,33 @@ public class Busqueda extends JFrame {
 	        this.setLocation(x - xMouse, y - yMouse);
 	    }
 	    
-	    
-    private void resultadoBusquedaH(String apellido) {
-    	var huespedes = this.huespedesController.resultadoHesped(apellido);
+	    private void resultadoBusqueda(Object parametroBusqueda) {
+	    	var huespedes = this.resultadoBusquedaController.resultadoBusqueda(parametroBusqueda);
+	    	huespedes.forEach(huesped ->{
+	    		modeloH.addRow(new Object[] {
+	    				huesped.getHuesped().getId(),
+	    				huesped.getHuesped().getNombre(),
+	    				huesped.getHuesped().getApellido(),
+	    				huesped.getHuesped().getFecha_nacimiento(),
+	    				huesped.getHuesped().getNacionalidad(),
+	    				huesped.getHuesped().getTelefono(),
+	    				huesped.getHuesped().getId_reserva(),
+	    		});
+	    		
+	    		modelo.addRow(new Object[] {
+	    				huesped.getReserva().getId(),
+	    				huesped.getReserva().getFecha_entrada(),
+	    				huesped.getReserva().getFecha_salida(),
+	    				huesped.getReserva().getValor(),
+	    				huesped.getReserva().getForma_pago(),
+	    		});				
+	    	});
+	    }    
+
+	/*
+	 * YA NO LO USAREMOS, HACEMOS TODO EN UNA SOLA LINEA
+    private void resultadoBusquedaH(Object parametroBusqueda) {
+    	var huespedes = this.huespedesController.resultadoHesped(parametroBusqueda);
     	huespedes.forEach(huesped -> modeloH.addRow(
     			new Object[] {
     					huesped.getId(),
@@ -308,7 +336,10 @@ public class Busqueda extends JFrame {
     					huesped.getNacionalidad(),
     					huesped.getTelefono(),
     					huesped.getId_reserva() }));
+    	
+    	
     }
+    
     
     private void resultadoBusquedaR(Integer nReserva) {
     	var reservas = this.reservasController.resultadoReservas(nReserva);
@@ -321,7 +352,7 @@ public class Busqueda extends JFrame {
     					reserva.getForma_pago()
     			})));
     }
-    
-
+  
+*/
        
 }

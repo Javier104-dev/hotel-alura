@@ -13,7 +13,8 @@ public class ReservasController {
 	private ReservasDao reservasDao;
 	
 	public ReservasController() {
-		this.reservasDao = new ReservasDao(new ConnectionFactory().recuperaConexion());
+		var factory = new ConnectionFactory();
+		this.reservasDao = new ReservasDao(factory.recuperaConexion());
 	}
 	
 	public int guardar(Reservas reservas){
