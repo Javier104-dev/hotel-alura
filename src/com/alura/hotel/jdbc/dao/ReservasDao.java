@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.alura.hotel.jdbc.modelo.Reservas;
 
@@ -44,5 +46,43 @@ public class ReservasDao {
 			 throw new RuntimeException(e);
 		 }
 		 return reservas.getId();
+	 }
+
+	 public List<Reservas> reservasEnServidor (Integer nReserva){
+		 List<Reservas> resultado = new ArrayList<>();
+		 
+		 try {
+			 var querySelect = "SELECT "
+			 		+ "ID, "
+			 		+ "FECHA_ENTRADA, "
+			 		+ "FECHA_SALIDA, "
+			 		+ "VALOR, "
+			 		+ "FORMA_PAGO "
+			 		+ "FROM RESERVAS WHERE "
+			 		+ "ID = ?";
+			 final PreparedStatement statement = con.prepareStatement(querySelect);
+			 
+			 try(statement){
+				 statement.setInt(1, nReserva);
+				 statement.execute();
+				 
+				 final ResultSet resultSet = statement.getResultSet();
+				 
+				 try(resultSet){
+					 while(resultSet.next()) {
+						 Reservas fila = new Reservas(
+								 resultSet.getInt("ID"),
+								 resultSet.getDate("FECHA_ENTRADA"),
+								 resultSet.getDate("FECHA_SALIDA"),
+								 resultSet.getDouble("VALOR"),
+								 resultSet.getString("FORMA_PAGO"));
+						 resultado.add(fila);
+					 }
+				 }
+			 }
+		 }catch(SQLException e) {
+				throw new RuntimeException(e);
+		 }
+		return resultado;
 	 }
 }

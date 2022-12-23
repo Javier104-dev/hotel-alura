@@ -6,6 +6,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
+import com.alura.hotel.jdbc.controller.HuespedesController;
+import com.alura.hotel.jdbc.controller.ReservasController;
+import com.alura.hotel.jdbc.modelo.Huesped;
+import com.mchange.lang.StringUtils;
+
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -37,6 +43,8 @@ public class Busqueda extends JFrame {
 	private DefaultTableModel modeloH;
 	private JLabel labelAtras;
 	private JLabel labelExit;
+	private HuespedesController huespedesController;
+	private ReservasController reservasController;
 	int xMouse, yMouse;
 
 	/**
@@ -54,13 +62,15 @@ public class Busqueda extends JFrame {
 			}
 		});
 	}
-	
-	
 
 	/**
 	 * Create the frame.
 	 */
 	public Busqueda() {
+		
+		this.huespedesController = new HuespedesController();
+		this.reservasController = new ReservasController();
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Busqueda.class.getResource("/imagenes/lupa2.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 571);
@@ -103,7 +113,9 @@ public class Busqueda extends JFrame {
 		modelo.addColumn("Fecha Check Out");
 		modelo.addColumn("Valor");
 		modelo.addColumn("Forma de Pago");
-		//modelo.addRow(new Object[] { "ID", "CHECK-IN", "CHECK-OUT", "VALOR", "FORMA DE PAGO"});
+		modelo.addRow(new Object[] { "ID", "CHECK-IN", "CHECK-OUT", "VALOR", "FORMA DE PAGO"});
+		modelo.addRow(new Object[] {});
+
 		
 		tbHuespedes = new JTable();
 		tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -117,6 +129,8 @@ public class Busqueda extends JFrame {
 		modeloH.addColumn("Nacionalidad");
 		modeloH.addColumn("Telefono");
 		modeloH.addColumn("Numero de Reserva");
+		modeloH.addRow(new Object[] { "Id huesped", "Nombre", "Apellido", "F. Nacimiento", "Nacionalidad", "Telefono", "N° reserva"});
+		modeloH.addRow(new Object[] {});
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(Busqueda.class.getResource("/imagenes/Ha-100px.png")));
@@ -211,11 +225,21 @@ public class Busqueda extends JFrame {
 		
 		JPanel btnbuscar = new JPanel();
 		btnbuscar.addMouseListener(new MouseAdapter() {
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				//con este metodo verificamos si es un numero o un string, lo usamos como un if
+				String textoIngresado = txtBuscar.getText();
+				try {
+				  int numero = Integer.parseInt(textoIngresado);
+				  resultadoBusquedaR(numero);
+				} catch (NumberFormatException ex) {
+				  resultadoBusquedaH(textoIngresado);
+				}
 			}
 		});
+
+		
 		btnbuscar.setLayout(null);
 		btnbuscar.setBackground(new Color(12, 138, 199));
 		btnbuscar.setBounds(748, 125, 122, 35);
@@ -228,6 +252,7 @@ public class Busqueda extends JFrame {
 		lblBuscar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBuscar.setForeground(Color.WHITE);
 		lblBuscar.setFont(new Font("Roboto", Font.PLAIN, 18));
+		
 		
 		JPanel btnEditar = new JPanel();
 		btnEditar.setLayout(null);
@@ -269,5 +294,34 @@ public class Busqueda extends JFrame {
 	        int x = evt.getXOnScreen();
 	        int y = evt.getYOnScreen();
 	        this.setLocation(x - xMouse, y - yMouse);
-}
+	    }
+	    
+	    
+    private void resultadoBusquedaH(String apellido) {
+    	var huespedes = this.huespedesController.resultadoHesped(apellido);
+    	huespedes.forEach(huesped -> modeloH.addRow(
+    			new Object[] {
+    					huesped.getId(),
+    					huesped.getNombre(),
+    					huesped.getApellido(),
+    					huesped.getFecha_nacimiento(),
+    					huesped.getNacionalidad(),
+    					huesped.getTelefono(),
+    					huesped.getId_reserva() }));
+    }
+    
+    private void resultadoBusquedaR(Integer nReserva) {
+    	var reservas = this.reservasController.resultadoReservas(nReserva);
+    	reservas.forEach(reserva -> modelo.addRow((
+    			new Object[] {
+    					reserva.getId(),
+    					reserva.getFecha_entrada(),
+    					reserva.getFecha_salida(),
+    					reserva.getValor(),
+    					reserva.getForma_pago()
+    			})));
+    }
+    
+
+       
 }
