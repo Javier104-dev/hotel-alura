@@ -376,8 +376,7 @@ public class Busqueda extends JFrame {
     }
 
 
-    
-    
+
     
     private void limpiarTabla() {
         modelo.getDataVector().clear();
