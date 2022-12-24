@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.alura.hotel.jdbc.modelo.Reservas;
 
@@ -47,7 +45,30 @@ public class ReservasDao {
 		 }
 		 return reservas.getId();
 	 }
-
+	 
+	 public int eliminarReserva(Integer id) {
+		 try {
+			 
+			 final PreparedStatement statement = con.prepareStatement(
+					 //"DELETE FROM RESERVAS WHERE ID = ?"
+					 "DELETE RESERVAS, HUESPEDES "
+					 + "FROM HUESPEDES "
+					 + "JOIN reservas ON HUESPEDES.ID_RESERVA = RESERVAS.ID "
+					 + "WHERE RESERVAS.ID = ?"
+					 );
+			 try(statement){
+				 statement.setInt(1, id);
+				 statement.execute();
+				 return statement.getUpdateCount();
+			 }
+			 
+		 }catch(SQLException e) {
+				throw new RuntimeException(e);
+			}
+	 }
+}
+	 
+/*CODIGO SIN USO, SE HACE TODO EN RESULTADOSdAO
 	 public List<Reservas> reservasEnServidor (Integer nReserva){
 		 List<Reservas> resultado = new ArrayList<>();
 		 
@@ -85,4 +106,5 @@ public class ReservasDao {
 		 }
 		return resultado;
 	 }
-}
+*/	 
+

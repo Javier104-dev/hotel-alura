@@ -1,17 +1,14 @@
 package com.alura.hotel.jdbc.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import com.alura.hotel.jdbc.modelo.Huesped;
-import com.alura.hotel.jdbc.modelo.HuespedReserva;
-import com.alura.hotel.jdbc.modelo.Reservas;
+
 
 public class HuespedDao {
 	final private Connection con;

@@ -373,7 +373,7 @@ public class ReservasView extends JFrame {
 			
 			Reservas reserva = new Reservas(fechaEntrada, fechaSalida, precio , txtFormaPago.getSelectedItem().toString());
 		
-			int registro_id = reservascontroller.guardar(reserva);
+			int registro_id = reservascontroller.guardarReserva(reserva);
 			
 			RegistroHuesped registro = new RegistroHuesped(registro_id);
 			JOptionPane.showMessageDialog(null, "Registro Creado");
