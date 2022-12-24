@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 import com.alura.hotel.jdbc.modelo.Reservas;
 
 public class ReservasDao {
@@ -35,10 +37,8 @@ public class ReservasDao {
 				 try (resultSet) {
 	                    while (resultSet.next()) {
 	                    	reservas.setId(resultSet.getInt(1));
-	                       
 	                    }
 	                }
-
 			 }		  
 		 }catch (SQLException e) {
 			 throw new RuntimeException(e);
@@ -46,24 +46,27 @@ public class ReservasDao {
 		 return reservas.getId();
 	 }
 	 
-	 public int eliminarReserva(Integer id) {
+	 
+	 public void eliminarReserva(Integer id) {
 		 try {
 			 
 			 final PreparedStatement statement = con.prepareStatement(
-					 //"DELETE FROM RESERVAS WHERE ID = ?"
+					 //"DELETE FROM RESERVAS WHERE ID = ?");
+					 
 					 "DELETE RESERVAS, HUESPEDES "
 					 + "FROM HUESPEDES "
 					 + "JOIN reservas ON HUESPEDES.ID_RESERVA = RESERVAS.ID "
-					 + "WHERE RESERVAS.ID = ?"
+					 + "WHERE (RESERVAS.ID = ? || HUESPEDES.ID_RESERVA = ?)"
 					 );
+					 
 			 try(statement){
 				 statement.setInt(1, id);
+				 statement.setInt(2, id);
 				 statement.execute();
-				 return statement.getUpdateCount();
 			 }
-			 
+
 		 }catch(SQLException e) {
-				throw new RuntimeException(e);
+			 throw new RuntimeException(e);
 			}
 	 }
 }

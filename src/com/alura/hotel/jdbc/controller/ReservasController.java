@@ -18,8 +18,8 @@ public class ReservasController {
 		return reservasDao.guardarReserva(reservas);
 	}
 	
-	public int eliminarReserva(Integer id) {
-		return reservasDao.eliminarReserva(id);
+	public void eliminarReserva(Integer id) {
+		reservasDao.eliminarReserva(id);
 	}
 	
 }

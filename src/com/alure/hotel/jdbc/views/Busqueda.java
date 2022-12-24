@@ -109,7 +109,7 @@ public class Busqueda extends JFrame {
 		contentPane.add(panel);
 
 
-		
+
 		tbReservas = new JTable();
 		tbReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbReservas.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -287,7 +287,7 @@ public class Busqueda extends JFrame {
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				eliminar();
+				eliminar(panel.getSelectedIndex());
 				limpiarTabla();
 			}
 		});
@@ -342,18 +342,42 @@ public class Busqueda extends JFrame {
     	});
     }
     
-    private void eliminar(){
-    	
+    
+    //dependiendo de la pestaña abierta hacemos una accion panel.getSelectedIndex() para saber cual esta abierta
+	public void eliminar(int tab) {
+		if (tab == 0) {
+			eliminarDesdeReserva();
+		}
+		else if (tab == 1){
+			eliminarDesdeHuespedes();
+		}
+	}
+    
+    private void eliminarDesdeHuespedes(){
+
+    	Optional.ofNullable(modeloH.getValueAt(tbHuespedes.getSelectedRow(), tbHuespedes.getSelectedColumn()))
+		.ifPresentOrElse(fila -> {
+			Integer idReserva = Integer.valueOf(modeloH.getValueAt(tbHuespedes.getSelectedRow(), 6).toString());
+			this.reservasController.eliminarReserva(idReserva);
+			modeloH.removeRow(tbHuespedes.getSelectedRow());
+			JOptionPane.showMessageDialog(null, "Datos de reserva y huesped eliminados con exito!");
+
+		}, () -> JOptionPane.showMessageDialog(this, "Por favor, elije un item"));  
+    }
+    
+    private void eliminarDesdeReserva(){
     	Optional.ofNullable(modelo.getValueAt(tbReservas.getSelectedRow(), tbReservas.getSelectedColumn()))
-    			.ifPresentOrElse(fila -> {
-    				
-    				Integer idReserva = Integer.valueOf(modelo.getValueAt(tbReservas.getSelectedRow(), 0).toString());
-    				System.out.println(idReserva);
-    				var exitoEliminacion = this.reservasController.eliminarReserva(idReserva);
-    				modelo.removeRow(tbReservas.getSelectedRow());
-    				JOptionPane.showMessageDialog(this, exitoEliminacion + " items eliminados con éxito!");
-    			}, () -> JOptionPane.showMessageDialog(this, "Por favor, elije un item"));
-    }  
+		.ifPresentOrElse(fila -> {
+			Integer idReserva = Integer.valueOf(modelo.getValueAt(tbReservas.getSelectedRow(), 0).toString());
+			this.reservasController.eliminarReserva(idReserva);
+			modelo.removeRow(tbReservas.getSelectedRow());
+			JOptionPane.showMessageDialog(null, "Datos de reserva y huesped eliminados con exito!");
+		}, () -> JOptionPane.showMessageDialog(this, "Por favor, elije un item"));
+    }
+
+
+    
+    
     
     private void limpiarTabla() {
         modelo.getDataVector().clear();
