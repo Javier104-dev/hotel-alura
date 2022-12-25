@@ -21,4 +21,7 @@ public class ResultadoBusquedaController {
 		return resultadoBusquedaDao.huespedEnServidor(parametroBusqueda);
 	}
 
+	public void eliminarReserva(Integer id) {
+		resultadoBusquedaDao.eliminarReserva(id);
+	}
 }

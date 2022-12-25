@@ -365,7 +365,14 @@ public class ReservasView extends JFrame {
 	        this.setLocation(x - xMouse, y - yMouse);
 	    }
 	    
+	    
 	public void guardarReserva() {
+		
+        if (txtFechaE.getDate() == null && txtFechaS.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Los campos Nombre y Descripción son requeridos.");
+            return;
+        }
+		
 		try {
 			java.sql.Date fechaEntrada = new java.sql.Date((txtFechaE.getDate()).getTime());
 			java.sql.Date fechaSalida = new java.sql.Date((txtFechaS.getDate()).getTime());

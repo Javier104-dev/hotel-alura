@@ -350,7 +350,8 @@ public class RegistroHuesped extends JFrame {
 	    
 	private void guardarHuesped(int registro_id) {
 
-		if(txtNombre.getText().length() != 0 && txtApellido.getText().length() != 0 ) {
+		if((txtNombre.getText().length() != 0 && txtApellido.getText().length() != 0) &&
+			(txtFechaN.getDate() != null && txtTelefono.getText().length() != 0)) {
 			
 			String nombre = txtNombre.getText();
 			String apellido = txtApellido.getText();
@@ -369,8 +370,5 @@ public class RegistroHuesped extends JFrame {
 		}else {
 			JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 		}
-
-	
-	}
-											
+	}											
 }

@@ -1,6 +1,7 @@
 package com.alura.hotel.jdbc.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,6 +45,36 @@ public class HuespedDao {
 			}
 			
 		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public int modificarHuesped(Integer id, String nombre, String apellido, Date fecha_nacimiento, String nacionalidad, String telefono){	
+		try {
+			final PreparedStatement statement = con.prepareStatement(
+					"UPDATE HUESPEDES SET "
+					+ "NOMBRE = ?, "
+					+ "APELLIDO = ?, "
+					+ "FECHA_NACIMIENTO = ?, "
+					+ "NACIONALIDAD = ?, "
+					+ "TELEFONO = ? "
+					+ "WHERE ID = ?");
+			
+			try(statement){
+				
+				statement.setString(1, nombre);
+				statement.setString(2, apellido);
+				statement.setDate(3, fecha_nacimiento);
+				statement.setString(4, nacionalidad);
+				statement.setString(5, telefono);
+				statement.setInt(6, id);				
+				statement.execute();
+				
+				int updateCount = statement.getUpdateCount();
+				return updateCount;
+			}
+			
+		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}

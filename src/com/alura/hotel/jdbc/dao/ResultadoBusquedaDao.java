@@ -86,4 +86,27 @@ public class ResultadoBusquedaDao {
 		}
 		return resultado; 
 	}
+	
+	public void eliminarReserva(Integer id) {
+		 try {
+			 
+			 final PreparedStatement statement = con.prepareStatement(
+					 //"DELETE FROM RESERVAS WHERE ID = ?");
+					 
+					 "DELETE RESERVAS, HUESPEDES "
+					 + "FROM HUESPEDES "
+					 + "JOIN reservas ON HUESPEDES.ID_RESERVA = RESERVAS.ID "
+					 + "WHERE (RESERVAS.ID = ? && HUESPEDES.ID_RESERVA = ?)"
+					 );
+					 
+			 try(statement){
+				 statement.setInt(1, id);
+				 statement.setInt(2, id);
+				 statement.execute();
+			 }
+
+		 }catch(SQLException e) {
+			 throw new RuntimeException(e);
+			}
+	 }
 }

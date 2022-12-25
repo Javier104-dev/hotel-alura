@@ -1,6 +1,7 @@
 package com.alura.hotel.jdbc.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,26 +48,30 @@ public class ReservasDao {
 	 }
 	 
 	 
-	 public void eliminarReserva(Integer id) {
+	 public int modificarReserva(Integer id, Date fecha_entrada, Date fecha_salida, Double valor, String forma_pago) {		 
 		 try {
-			 
 			 final PreparedStatement statement = con.prepareStatement(
-					 //"DELETE FROM RESERVAS WHERE ID = ?");
-					 
-					 "DELETE RESERVAS, HUESPEDES "
-					 + "FROM HUESPEDES "
-					 + "JOIN reservas ON HUESPEDES.ID_RESERVA = RESERVAS.ID "
-					 + "WHERE (RESERVAS.ID = ? || HUESPEDES.ID_RESERVA = ?)"
-					 );
-					 
+					 "UPDATE RESERVAS SET "
+			 		+ "FECHA_ENTRADA = ?, "
+			 		+ "FECHA_SALIDA = ?, "
+			 		+ "VALOR = ?, "
+			 		+ "FORMA_PAGO = ? "
+			 		+ "WHERE ID = ?");
+			
 			 try(statement){
-				 statement.setInt(1, id);
-				 statement.setInt(2, id);
+				 
+				 statement.setDate(1, fecha_entrada);
+				 statement.setDate(2, fecha_salida);
+				 statement.setDouble(3, valor);
+				 statement.setString(4, forma_pago);
+				 statement.setInt(5, id);
 				 statement.execute();
+				 
+				 int updateCount = statement.getUpdateCount();
+				 return updateCount;
 			 }
-
-		 }catch(SQLException e) {
-			 throw new RuntimeException(e);
+		 }catch(SQLException e) { //tratamos la bomba con SQLException
+				throw new RuntimeException(e);//tratamos el error aqui para no pasarlo mas
 			}
 	 }
 }

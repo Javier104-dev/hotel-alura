@@ -1,5 +1,7 @@
 package com.alura.hotel.jdbc.controller;
 
+import java.sql.Date;
+
 import com.alura.hotel.jdbc.dao.ReservasDao;
 import com.alura.hotel.jdbc.factory.ConnectionFactory;
 import com.alura.hotel.jdbc.modelo.Reservas;
@@ -18,8 +20,7 @@ public class ReservasController {
 		return reservasDao.guardarReserva(reservas);
 	}
 	
-	public void eliminarReserva(Integer id) {
-		reservasDao.eliminarReserva(id);
+	public int modificarReserva(Integer id, Date fecha_entrada, Date fecha_salida, Double valor, String forma_pago) {
+		return reservasDao.modificarReserva(id, fecha_entrada, fecha_salida, valor, forma_pago);
 	}
-	
 }
