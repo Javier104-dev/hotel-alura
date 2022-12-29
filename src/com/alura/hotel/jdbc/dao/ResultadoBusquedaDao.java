@@ -39,7 +39,7 @@ public class ResultadoBusquedaDao {
 					+ "R.FORMA_PAGO "
 					+ "FROM HUESPEDES H INNER JOIN RESERVAS R "
 					+ "ON H.ID_RESERVA = R.ID "
-					+ "WHERE (H.APELLIDO = ? OR R.ID = ?)";
+					+ "WHERE (H.APELLIDO = ? || R.ID = ?)";
 			
 			final PreparedStatement statement = con.prepareStatement(querySelect);
 			

@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import com.alura.hotel.jdbc.modelo.Huesped;
 
@@ -80,6 +81,57 @@ public class HuespedDao {
 	}
 
 	
+	public List<Huesped> listarHuespedes(){
+		List<Huesped> resultado = new ArrayList<>();
+		
+		try {
+			 final PreparedStatement statement = con.prepareStatement(
+					 "SELECT "
+					 + "ID, "
+					 + "NOMBRE, "
+					 + "APELLIDO, "
+					 + "FECHA_NACIMIENTO, "
+					 + "NACIONALIDAD, "
+					 + "TELEFONO, "
+					 + "ID_RESERVA "
+					 + "FROM HUESPEDES");
+			 
+			 try(statement){
+				 statement.execute();
+				 
+				 final ResultSet resultSet = statement.getResultSet();
+				 
+				 try(resultSet){
+					 
+					 while(resultSet.next()) {
+						 Huesped fila = new Huesped(
+								 resultSet.getInt("ID"),
+								 resultSet.getString("NOMBRE"),
+								 resultSet.getString("APELLIDO"),
+								 resultSet.getDate("FECHA_NACIMIENTO"),
+								 resultSet.getString("NACIONALIDAD"),
+								 resultSet.getString("TELEFONO"),
+								 resultSet.getInt("ID_RESERVA"));
+						 resultado.add(fila);
+					 }
+				 }
+			 }
+		} catch(SQLException e) {
+			throw new RuntimeException(e);//tratamos el error aqui para no pasarlo mas
+		}
+		return resultado;
+	}
+}
+/*
+id int AI PK 
+nombre varchar(255) 
+apellido varchar(255) 
+fecha_nacimiento date 
+nacionalidad varchar(255) 
+telefono varchar(255) 
+id_reserva int
+
+*/
 	/*
 	 *
 	public List<Huesped> huespedEnServidor (Object parametroBusqueda){
@@ -134,4 +186,3 @@ public class HuespedDao {
 		return resultado; 
 	}
 	 */
-}

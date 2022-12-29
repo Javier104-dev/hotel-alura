@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -74,8 +76,47 @@ public class ReservasDao {
 				throw new RuntimeException(e);//tratamos el error aqui para no pasarlo mas
 			}
 	 }
-}
 	 
+	 
+	 public List<Reservas> listarReservas(){
+		 List<Reservas> resultado = new ArrayList<>();
+		 
+		 try {
+			 final PreparedStatement statement = con.prepareStatement(
+					 "SELECT "
+					 + "ID, "
+					 + "FECHA_SALIDA, "
+					 + "FECHA_ENTRADA, "
+					 + "VALOR, "
+					 + "FORMA_PAGO "
+					 + "FROM RESERVAS");
+			 
+			 try(statement){
+				 statement.execute();
+				 
+				 final ResultSet resultSet = statement.getResultSet();
+				 
+				 try(resultSet){
+					 
+					 while(resultSet.next()) {
+						 
+						 Reservas fila = new Reservas(
+								 resultSet.getInt("ID"),
+								 resultSet.getDate("FECHA_ENTRADA"),
+								 resultSet.getDate("FECHA_SALIDA"),
+								 resultSet.getDouble("VALOR"),
+								 resultSet.getString("FORMA_PAGO"));
+						 resultado.add(fila);
+					 }
+				 }
+			 }		 
+		 } catch(SQLException e) {
+				throw new RuntimeException(e);//tratamos el error aqui para no pasarlo mas
+		 }
+		return resultado;
+	 }
+}
+
 /*CODIGO SIN USO, SE HACE TODO EN RESULTADOSdAO
 	 public List<Reservas> reservasEnServidor (Integer nReserva){
 		 List<Reservas> resultado = new ArrayList<>();
