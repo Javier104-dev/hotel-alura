@@ -91,7 +91,8 @@ public class Busqueda extends JFrame {
 		setUndecorated(true);
 		
 		txtBuscar = new JTextField();
-		txtBuscar.setBounds(536, 127, 193, 31);
+		txtBuscar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtBuscar.setBounds(376, 127, 193, 31);
 		txtBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		contentPane.add(txtBuscar);
 		txtBuscar.setColumns(10);
@@ -238,7 +239,7 @@ public class Busqueda extends JFrame {
 		JSeparator separator_1_2 = new JSeparator();
 		separator_1_2.setForeground(new Color(12, 138, 199));
 		separator_1_2.setBackground(new Color(12, 138, 199));
-		separator_1_2.setBounds(539, 159, 193, 2);
+		separator_1_2.setBounds(376, 157, 193, 2);
 		contentPane.add(separator_1_2);
 		
 		JPanel btnbuscar = new JPanel();
@@ -247,18 +248,11 @@ public class Busqueda extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				//ahora acepta numerico como string, la verificacion se hace en la peticion y puede buscar con ambos
-				
-				
-				if(txtBuscar.getText().isBlank()) {
-					limpiarTabla();
-					cargarReservas();
-					cargarHuespedes();
-				}else{
+							
+				if(!txtBuscar.getText().isBlank()) {
 					limpiarTabla();
 					resultadoBusqueda(txtBuscar.getText());
 				}
-				
-				 
 				/*
 				//con este metodo verificamos si es un numero o un string, lo usamos como un if
 				String textoIngresado = txtBuscar.getText();
@@ -272,10 +266,9 @@ public class Busqueda extends JFrame {
 			}
 		});
 
-		
 		btnbuscar.setLayout(null);
 		btnbuscar.setBackground(new Color(12, 138, 199));
-		btnbuscar.setBounds(748, 125, 122, 35);
+		btnbuscar.setBounds(585, 121, 122, 35);
 		btnbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		contentPane.add(btnbuscar);
 		
@@ -285,6 +278,29 @@ public class Busqueda extends JFrame {
 		lblBuscar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBuscar.setForeground(Color.WHITE);
 		lblBuscar.setFont(new Font("Roboto", Font.PLAIN, 18));		
+		
+		JPanel btnVerRegistros = new JPanel();
+		btnVerRegistros.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+					txtBuscar.setText("");
+					limpiarTabla();
+					cargarReservas();
+					cargarHuespedes();
+			}
+		});
+		btnVerRegistros.setLayout(null);
+		btnVerRegistros.setBackground(new Color(12, 138, 199));
+		btnVerRegistros.setBounds(711, 121, 170, 35);
+		btnVerRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnVerRegistros);
+		
+		JLabel lblVerRegistros = new JLabel("VER REGISTROS");
+		lblVerRegistros.setBounds(0, 0, 170, 35);
+		btnVerRegistros.add(lblVerRegistros);
+		lblVerRegistros.setHorizontalAlignment(SwingConstants.CENTER);
+		lblVerRegistros.setForeground(Color.WHITE);
+		lblVerRegistros.setFont(new Font("Roboto", Font.PLAIN, 18));
 		
 		JPanel btnEditar = new JPanel();
 		btnEditar.addMouseListener(new MouseAdapter() {
@@ -329,7 +345,6 @@ public class Busqueda extends JFrame {
 		lblEliminar.setFont(new Font("Roboto", Font.PLAIN, 18));
 		lblEliminar.setBounds(0, 0, 122, 35);
 		btnEliminar.add(lblEliminar);
-		setResizable(false);
 	}
 	
 //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
@@ -345,6 +360,9 @@ public class Busqueda extends JFrame {
     }
 	    
     private void resultadoBusqueda(Object parametroBusqueda) {
+    	agregarTitulosHuespedes();
+    	agregarTitulosReservas();
+    	
     	var huespedes = this.resultadoBusquedaController.resultadoBusqueda(parametroBusqueda);
     	huespedes.forEach(huesped ->{
     		modeloH.addRow(new Object[] {
@@ -406,11 +424,21 @@ public class Busqueda extends JFrame {
 	   modeloH.setRowCount(0);
    }
    
+   private void agregarTitulosReservas() {
+	   modelo.addRow(new Object[] { "ID", "CHECK-IN", "CHECK-OUT", "VALOR", "FORMA DE PAGO"});
+	   modelo.addRow(new Object[] {});
+   }
+   
+   private void agregarTitulosHuespedes() {
+	   modeloH.addRow(new Object[] { "Id huesped", "Nombre", "Apellido", "F. Nacimiento", "Nacionalidad", "Telefono", "N° reserva"});
+	   modeloH.addRow(new Object[] {});
+   }
+   
 	//////////////////////////////////////////////////////////////
    
    private void cargarReservas(){
 	   var reservas = this.reservasController.listarReservas();
-	   
+	   agregarTitulosReservas();
 	   reservas.forEach(reserva -> modelo.addRow(
 			   new Object[] {
 					   reserva.getId(),
@@ -424,7 +452,7 @@ public class Busqueda extends JFrame {
    
    private void cargarHuespedes() {
 	   var huespedes = this.huespedesController.listarHespedes();
-	   
+	   agregarTitulosHuespedes();
 	   huespedes.forEach(huesped -> modeloH.addRow(
 			   new Object[] {
 					   huesped.getId(),
