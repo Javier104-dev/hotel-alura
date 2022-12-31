@@ -45,7 +45,7 @@ Si elegimos la opcion de Registro de reservas se abrira la ventana <Strong>Siste
 <p>
      
 ## Registro del huesped
-Una vez guardada la reserva en la base de datos debemos registrar al huesped, en esta ventana tendremos que llenar el formulario con nombre completo, fecha de nacimiento, nacionalidad y telefono. En el campo numero de reserva podremos ver la clave generada en la pestaña anterior, esta clave es la que vincula la tabla de reservas y huespedes en la base de datos, es su <Strong>clave foranea</Strong>. Una vez completado todos los campos con los datos validos podremos enviarlos a la base de datos con el boton <Strong>Guardar</Strong>.
+Una vez guardada la reserva en la base de datos debemos registrar al huesped, en esta ventana tendremos que llenar el formulario con nombre completo, fecha de nacimiento, nacionalidad y telefono. En el campo numero de reserva podremos ver la clave generada en la pestaña anterior, esta clave es la que vincula la tabla de reservas y huespedes en la base de datos, es su <Strong>clave foranea</Strong>. Una vez completado todos los campos con datos validos podremos enviarlos a nuestro servidor MySql con el boton <Strong>Guardar</Strong> y nos regresara al menu principal para poder agregar otra reserva.
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125966-44b06459-dfce-4c83-a863-2eb5af7f1554.png">
 <p>   
