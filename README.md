@@ -37,7 +37,9 @@ Aqui podremos elegir entre dos opciones, ir al registro del hotel o ver todos lo
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125183-f76c8b42-eb76-4234-8b9e-9f1274ee0581.png">
 <p>
-     
+
+<h1 align="center">🔍 Registro de Reservas y Huespedes</h1>
+
 ## Sistema de reservas
 Si elegimos la opcion de Registro de reservas se abrira la ventana <Strong>Sistema de reservas</Strong>, aqui podremos guardar en la base de datos los dias de estadia, el valor y la forma de pago del huesped. El valor es de $25 por dia, el valor total se calcula segun los dias elegidos y se hace de forma automatica mostrando el resultado en el campo  <Strong>Valor de la reserva</Strong>. En esta parte del registro se genera de forma interna la <Strong>clave foranea</Strong> que usaremos en el registro de huespedes
 <p align="center">
@@ -50,7 +52,7 @@ Una vez guardada la reserva en la base de datos debemos registrar al huesped, en
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125966-44b06459-dfce-4c83-a863-2eb5af7f1554.png">
 <p>   
      
-
+<h1 align="center">🔍 Buscas, editar y eliminar las reservas/huespedes</h1>
 
      
      
