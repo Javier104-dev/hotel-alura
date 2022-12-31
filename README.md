@@ -6,13 +6,11 @@
 </p>
 
 ---
-##  Primeros Pasos:
+##  Entrega de mi Challenge ONE Java: Hotel Alura:
+
+En esta ocasion debiamos realizar la logica detras de un programa para poder conectarnos a una base de datos y poder registrar a los huespedes y sus reservas en el hotel. Debiamos usar todo lo aprendido de Java utilizando Eclipse para poder cumplir con los requisitos del desafio que consistian en:
 
 
-#### 🔹 Marca este proyecto con una ⭐
-#### 🔹 Sigue las orientaciones que tenemos en este repositorio. 📚
-#### 🔹 ¡Visita la página del desafío haciendo clic aquí! [Link do Challenge](https://www.aluracursos.com/challenges/oracle-one-java) 📃
-</br>
 
 ## 🖥️ Tecnologías Utilizadas:
 
