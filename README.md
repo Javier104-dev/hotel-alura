@@ -11,6 +11,33 @@
 En esta ocasion debiamos realizar la logica detras de un programa para poder conectarnos a una base de datos y poder registrar a los huespedes y sus reservas en el hotel. Debiamos usar todo lo aprendido de Java utilizando Eclipse para poder cumplir con los requisitos del desafio que consistian en:
 
 
+<strong>
+🔹 Sistema de autenticación de usuario.</br>
+🔹 Permitir crear, editar y eliminar una reserva para los clientes.</br>
+🔹 Buscar en la base de datos todas las informaciones tanto de los clientes como de las reservas.</br>
+🔹 Registrar, editar y eliminar datos de los huéspedes.</br>
+🔹 Calcular el valor de la reserva en base a la cantidades de días.</br>
+🔹 Base de datos para almacenar todos los datos pedidos anteriormente.</br>
+</strong>
+
+## 🔍 Presentacion del programa
+<p align="center">
+<img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125107-af07f676-91d5-4e6d-b689-4a55840ef480.png">
+<p>
+
+
+## Verificacion  
+Al seleccionar Login podremos ingresar nuestro usuario y contraseña (admin, admin). La logica de verificacio es muy simple, solo tiene una condicional y un String con los datos del usuario.
+<p align="center">
+<img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125112-50c14946-91d0-4a2b-9e73-b08b1c9a3717.png">
+<p>
+ 
+## Menu principal
+Aqui podremos elegir entre dos opciones, ir al registro del hotel o ver todos los huespedes y sus reservas.
+<p align="center">
+<img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125183-f76c8b42-eb76-4234-8b9e-9f1274ee0581.png">
+<p>
+
 
 ## 🖥️ Tecnologías Utilizadas:
 
