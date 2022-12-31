@@ -54,13 +54,23 @@ Una vez guardada la reserva en la base de datos debemos registrar al huesped, en
      
 <h1 align="center">🔍 Buscas, editar y eliminar las reservas/huespedes</h1>
 
+## Editar y eliminar registros de la base de datos
+En la seccion <Strong>Busqueda</Strong> del menu principal podremos ver en dos pestañas todas las reservas y los huespedes registrados en el hotel. En estas tablas podremos editar y eliminar los registros que selecciones.
+
+<h2 align="center">Eliminar</h2>
+Para eliminar solo seleccionamos el registro y luego presionamos el boton <Strong>Eliminar</Strong>, esta opcion eliminara el registro de huespedes y sus reservas de forma simultanea aprovechando la clave foranea que creamos y vinculamos en la seccion de registro, actualizando y mostrando los datos en tiempo real.
+<p align="center">
+<img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210128444-cc55c6d4-b2be-492e-b34c-3ec9b9f3a01b.png">
+<p>
+
+<h2 align="center">Editar</h2>
+De la misma forma podremos editar los campos de la tabla, excepto el ID del huesped e Id de reserva, solamente haciendo doble click y escribiendo los datos nuevos. Para enviarlos al servidor y guardarlos solamente bastara con presionar el boton "Editar".
+<p align="center">
+<img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210128446-1817e431-3272-4bd7-8994-86b4b92eaadf.png">
+<p> 
      
-     
-     
-     
-     
-     
-     
+
+
      
 ## 🖥️ Tecnologías Utilizadas:
 
