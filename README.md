@@ -21,7 +21,7 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 </strong>
 
 <h1 align="center"> 📹 Demostracion</h1>
-Dejo una pequeña grabacion que hice para que se vean todas las caracteristicas y funciones que pude crear:
+Una pequeña grabacion que hice para que se vean todas las caracteristicas y funciones que pude crear:
 
 <h1 align="center">🔍 Presentacion del programa</h1>
 <p align="center">
