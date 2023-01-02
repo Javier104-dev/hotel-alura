@@ -114,7 +114,7 @@ Para este proyecto tuve que crear una base de datos en MySql con dos tablas, hue
 ## 🖥️ Sobre mi desafio:
 
 Realmente fue un gran desafio poder terminar este proyecto, esta era la segunda vez que ponia en practica todo lo que aprendi de Java y fue bastante dificil por que el unico lenguaje que conocia era JavaScript y estoy bastante acostumbrado a su forma de sintaxis, estructura, obtener los inputs, el debil tipado de datos, ect. Al ver el desafio dude muchas veces en siquiera terminar los primeros pasos, pero al comenzar poco a poco usar el Trello, analizar lo que nos estaban pidiendo y compararlo con lo que nos enseñaron pude darme cuenta que no era tan dificil como lo pensaba.
-<p>Fue gratificante ver como completaba el programa, crear las peticiones al servidor, la logica para usar y mostrar los datos obtenidos y sobre todo ver funcionaba al testearlo. Una verdadera experiencia con este lenguaje de programacion llamado Java.</p>
+<p>Fue gratificante ver como completaba el programa, crear las peticiones al servidor, la logica para usar y mostrar los datos obtenidos, pero sobre todo ver que el codigo funcionaba en cada testeo. Una verdadera experiencia con este lenguaje de programacion llamado Java.</p>
 
 Gracias por ver mi repositorio.
 
