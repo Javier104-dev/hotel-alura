@@ -87,7 +87,7 @@ Para obtener la reserva y sus huespedes podemos usar el <Strong>Id de reserva o 
      
 ## 🖥️ Tecnologías Utilizadas:
 
-- Java
+- Java 11
 - Eclipse
 - Biblioteca JCalendar
 - MySql
