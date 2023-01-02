@@ -26,13 +26,13 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 <p>
 
 
-## Verificacion  
+<h2 align="center">Verificacion</h2>
 Al seleccionar Login podremos ingresar nuestro usuario y contraseña (admin, admin). La logica de verificacio es muy simple, solo tiene una condicional y un String con los datos del usuario.
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125112-50c14946-91d0-4a2b-9e73-b08b1c9a3717.png">
 <p>
- 
-## Menu principal
+     
+<h2 align="center">Menu principal</h2>
 Aqui podremos elegir entre dos opciones, ir al registro del hotel o ver todos los huespedes y sus reservas.
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125183-f76c8b42-eb76-4234-8b9e-9f1274ee0581.png">
@@ -40,13 +40,13 @@ Aqui podremos elegir entre dos opciones, ir al registro del hotel o ver todos lo
 
 <h1 align="center">🔍 Registro de Reservas y Huespedes</h1>
 
-## Sistema de reservas
+<h2 align="center">Sistema de reservas</h2>
 Si elegimos la opcion de Registro de reservas se abrira la ventana <Strong>Sistema de reservas</Strong>, aqui podremos guardar en la base de datos los dias de estadia, el valor y la forma de pago del huesped. El valor es de $25 por dia, el valor total se calcula segun los dias elegidos y se hace de forma automatica mostrando el resultado en el campo  <Strong>Valor de la reserva</Strong>. En esta parte del registro se genera de forma interna la <Strong>clave foranea</Strong> que usaremos en el registro de huespedes
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125588-f4439b84-595e-49a2-9320-83d6c506532f.png">
 <p>
      
-## Registro del huesped
+<h2 align="center">Registro del huesped</h2>
 Una vez guardada la reserva en la base de datos debemos registrar al huesped, en esta ventana tendremos que llenar el formulario con nombre completo, fecha de nacimiento, nacionalidad y telefono. En el campo numero de reserva podremos ver la clave generada en la pestaña anterior, esta clave es la que vincula la tabla de reservas y huespedes en la base de datos, es su <Strong>clave foranea</Strong>. Una vez completado todos los campos con datos validos podremos enviarlos a nuestro servidor MySql con el boton <Strong>Guardar</Strong> y nos regresara al menu principal para poder agregar otra reserva.
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125966-44b06459-dfce-4c83-a863-2eb5af7f1554.png">
