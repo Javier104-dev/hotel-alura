@@ -108,42 +108,12 @@ Para este proyecto tuve que crear una base de datos en MySql con dos tablas, hue
      <img width="500" heigth="500" src="https://user-images.githubusercontent.com/91544872/173358015-a252c5cf-48a2-4285-907d-a69239e7c5a5.png">
 </p>
 
+## 🖥️ Sobre mi desafio:
 
-### ¿Cómo abrir cada ventana de diseño?
+Realmente fue un gran desafio poder terminar este proyecto, esta era la segunda vez que ponia en practica todo lo que aprendi de Java y fue bastante dificil por que el unico lenguaje que conocia era JavaScript y estoy bastante acostumbrado a su forma de sintaxis, estructura, obtener los inputs, el debil tipado de datos, ect. Al ver el desafio dude muchas veces en siquiera terminar los primeros pasos, pero al comenzar poco a poco usar el Trello, analizar lo que nos estaban pidiendo y compararlo con lo que nos enseñaron pude darme cuenta que no era tan dificil como lo pensaba.
+<p>Fue gratificante ver como completaba el programa, crear las peticiones al servidor, la logica para usar y mostrar los datos obtenidos y sobre todo ver funcionaba al testearlo. Una verdadera experiencia con este lenguaje de programacion llamado Java.</p>
 
-Una vez que completes el desafío, si quieres explorar el <em>Window Builder</em> y agregar nuevas ventanas, o cambiar el diseño de las existentes, haz clic en el archivo <strong>.java</strong>, y luego en <em>Open With</em> y finalmente en <em>Window Builder Editor</em>.
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173681973-5699a164-b66d-49f5-87c1-5436dd425457.png">
-</p>
-
-La pestaña de <em>Design</em> se abrirá por encima de la zona del <em>Console</em>. ¡Aquí puedes liberar al artista que llevas dentro de ti!
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173682648-4c371224-fe4b-4e57-a3ee-9298a4d44554.png">
-</p>
-
-## 📬 Entrega
-
-### ¿Cómo incluir mi proyecto con el "#" del desafío?
-
-1) Ten el <strong>Fork</strong> del proyecto en tu repositorio en Github.
-2) Utilize el topico **#challengeonehotelaluralatam2** </br>
-3) Ve a la pestaña derecha de tu proyecto y haz clic en el engranaje de configuración en la sección <em>About</em>, seleccione el campo **topics** e inserte la etiqueta **challengeonehotelaluralatam3**
-
-
-### ¿Cómo hago la entrega final de mi Proyecto?
-
-4) Rellena el siguiente formulario con tus datos personales, junto con el enlace de tu repositorio. 🔹 [Link para o formulário](https://lp.alura.com.br/alura-latam-lp-entrega-de-challenge-one-esp)
-
-<p align="center" >
-     <img width="700" heigth="700" src="https://user-images.githubusercontent.com/91544872/179625558-4dda7e69-bdaf-4a79-9ca9-82cf8fede9de.png">
-</p>
-
-5) Ve a tu correo electrónico y canjea tu insignia obtenida al completar otro desafío del Proyecto ONE! 🏆
-
-6) ¡No olvides poner un enlace o video de tu proyecto en Linkedin! Etiqueta a #Oracle y #AluraLatam 🏁
-
+Gracias por ver mi repositorio.
 
 ## Autor:
 | [<img src="https://avatars.githubusercontent.com/u/105408069?v=4" width=115><br><sub>Javir Anibal Villca</sub>](https://github.com/Javier104-dev)  |
