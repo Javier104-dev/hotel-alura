@@ -71,6 +71,8 @@ De la misma forma podremos editar los campos de la tabla, excepto el ID del hues
      
 <h2 align="center">Busqueda en la base de datos</h2>
 Para obtener la reserva y sus huespedes podemos usar el <Strong>Id de reserva o el apellido del cliente</Strong>. Siempre se mostraran ambos registros y podremos eliminarlos o editarlos a nuestro gusto.
+
+<p>Para volver a ver todos los huespedes y reservas debemos usar el boton <Strong>Ver registros</Strong></p>
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210199442-d9c1fcc9-3f16-4d50-b1f5-52f4bbf9c700.png">
 <p>
@@ -94,34 +96,10 @@ Para obtener la reserva y sus huespedes podemos usar el <Strong>Id de reserva o 
 
 ## 📊 Banco de Dados
 
-### ¿Cómo importar MySqlConnector al proyecto?
+### MySql
 
-Es la misma ruta descrita para importar el <strong>JCalendar</strong>, haga clic con el botón derecho en el proyecto, <em>Build Path</em>, <em>Configure Build Path</em>, <em>Libraries</em>, <em>Add External JARs</em>. Para encontrar la ruta de este archivo <strong>.jar</strong>, ve al disco duro de tu computadora e ingresa a la carpeta  <em>Archivos de Programas (x86)</em>.
-
-- Archivos de Programas (x86):
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173169394-a67b528a-c8b7-4f7a-b374-a1da81b1cc5d.png">
-</p>
-
-- MySQL
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173169551-b32a9978-3a05-4b6e-b077-f586d0c41e31.png">
-</p>
-
-- Connector J 8.0:
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173169584-48e21a03-e70f-4a65-9197-448a3645f526.png">
-</p>
-
-- My SQL Connector Java:
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173169737-5f93868e-df8f-4177-90ba-faf9570758ac.png">
-</p>
-
-### Modelado de tablas:
-
-Para este reto te proponemos dos tablas: <strong>Reservas</strong> y <strong>Huéspedes</strong>. La tabla de huéspedes debe contener la clave externa <em>(foreign key)</em> <strong>idReserva</strong>.
+Para este proyecto tuve que crear una base de datos en MySql con dos tablas, huespedes y reservas, ambas estan vinculadas con una clave foranea que utilice para la busqueda y el listado de los registros en el programa. El campo tiene como propiedad AUTO_INCREMENT por cada reserva creada.
+<p>Aqui dejo unas imagenes donde se ven los valores que tienen ambas tablas:</p>
 
 <p align="center" >
      <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/169529338-09a4d4c2-1b5a-41dc-b305-38498ebc29a8.png">
@@ -130,33 +108,6 @@ Para este reto te proponemos dos tablas: <strong>Reservas</strong> y <strong>Hu�
      <img width="500" heigth="500" src="https://user-images.githubusercontent.com/91544872/173358015-a252c5cf-48a2-4285-907d-a69239e7c5a5.png">
 </p>
 
-## 🗔 Plugin WindowBuilder
-
-En el menú de <strong>Eclipse</strong>, ir a la pestaña <em>Help</em> y seleccione la opción <em>Eclipse Marketplace</em>.
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173254683-a4d27b04-3994-4c7b-bf70-6e1b665a5452.png">
-</p>
-
-En la barra de búsqueda, ingresa <strong>window builder</strong> y haz click en <em>Go</em>. Después de la búsqueda, selecciona la primera opción y haz click en <em>Install</em>.
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173254936-b1ed41ba-af1b-47ae-bf75-00de4a22ff19.png">
-</p>
-
-En la siguiente ventana, selecciona el botón <em>Confirm</em>.
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173255237-94789460-0544-4dd3-b00d-2738b83bd575.png">
-</p>
-
-Haz click en la opción para aceptar los Términos de Uso, y para finalizar haz clic en <em>Finish</em>.
-
-<p align="center" >
-     <img width="500" heigth="500" src="https://user-images.githubusercontent.com/101413385/173255298-05ac80f1-3e93-4097-90af-7fc8a4fa1611.png">
-</p>
-
-Después de la instalación, será necesario reiniciar el <strong>Eclipse</strong>.
 
 ### ¿Cómo abrir cada ventana de diseño?
 
