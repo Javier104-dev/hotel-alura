@@ -23,6 +23,7 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 <h1 align="center"> 🔴 Demostracion</h1>
 Aqui se pueden ver todas las caracteristicas que tiene el programa, desde registrar a los huespedes y sus reservas hasta buscar, editar y borrarlos de la base de datos.
 Al hacer click sobre la imagen los redireccionar al video en Youtube.
+
 [![Alt text](https://img.youtube.com/vi/OZGkz9YAwLw/0.jpg)](https://www.youtube.com/watch?v=OZGkz9YAwLw)
 
 <h1 align="center">🔍 Presentacion del programa</h1>
