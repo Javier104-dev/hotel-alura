@@ -36,7 +36,7 @@ public class HuespedDao {
 				statement.setInt(6, huesped.getId_reserva());
 				statement.execute();
 				
-				final ResultSet resultSet = statement.getGeneratedKeys();
+				final ResultSet resultSet = statement.getGeneratedKeys();	
 				
 				try(resultSet){
 					while(resultSet.next()) {
@@ -122,67 +122,3 @@ public class HuespedDao {
 		return resultado;
 	}
 }
-/*
-id int AI PK 
-nombre varchar(255) 
-apellido varchar(255) 
-fecha_nacimiento date 
-nacionalidad varchar(255) 
-telefono varchar(255) 
-id_reserva int
-
-*/
-	/*
-	 *
-	public List<Huesped> huespedEnServidor (Object parametroBusqueda){
-		List<Huesped> resultado = new ArrayList<>();
-		
-		try{
-			var querySelect ="SELECT "
-					+ "ID, "
-					+ "NOMBRE, "
-					+ "APELLIDO, "
-					+ "FECHA_NACIMIENTO, "
-					+ "NACIONALIDAD, "
-					+ "TELEFONO, "
-					+ "ID_RESERVA "
-					+ "FROM HUESPEDES WHERE "
-					+ "(APELLIDO = ? or ID_RESERVA = ?)";
-			
-			final PreparedStatement statement = con.prepareStatement(querySelect);
-			
-			try(statement){
-				//con esto depende el resultado si es un strin o un in
-				if(parametroBusqueda instanceof String) {
-				statement.setString(1, (String) parametroBusqueda);
-				statement.setString(2, (String) parametroBusqueda);
-				
-				}else if(parametroBusqueda instanceof Integer) {
-					statement.setInt(1, (int) parametroBusqueda);
-					statement.setInt(2, (int) parametroBusqueda);
-				}
-				
-				statement.execute();
-				
-				final ResultSet resulSet = statement.getResultSet();
-				
-				try(resulSet){
-					while(resulSet.next()) {
-						Huesped fila = new Huesped(
-								resulSet.getInt("ID"),
-								resulSet.getString("NOMBRE"),
-								resulSet.getString("APELLIDO"),
-								resulSet.getDate("FECHA_NACIMIENTO"),
-								resulSet.getString("NACIONALIDAD"),
-								resulSet.getString("TELEFONO"),
-								resulSet.getInt("ID_RESERVA"));
-						resultado.add(fila);		
-					}
-				}
-			}		
-		}catch(SQLException e) {
-			throw new RuntimeException(e);
-		}
-		return resultado; 
-	}
-	 */
