@@ -20,7 +20,7 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 🔹 Base de datos para almacenar todos los datos pedidos anteriormente.</br>
 </strong>
 
-<h1 align="center"> 📹 Demostracion</h1>
+<h1 align="center"> 🔴 Demostracion</h1>
 Una pequeña grabacion que hice para que se vean todas las caracteristicas y funciones que pude crear:
 
 <h1 align="center">🔍 Presentacion del programa</h1>
