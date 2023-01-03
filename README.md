@@ -21,7 +21,7 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 </strong>
 
 <h1 align="center"> 🔴 Demostracion</h1>
-Una pequeña grabacion que hice para que se vean todas las caracteristicas y funciones que pude crear:
+Aqui se pueden ver todas las caracteristicas que tiene el programa, desde registrar a los huespedes y sus reservas hasta buscar, editar y borrarlos de la base de datos.
 
 <h1 align="center">🔍 Presentacion del programa</h1>
 <p align="center">
