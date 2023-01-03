@@ -23,6 +23,8 @@ En esta ocasion debiamos realizar la logica detras de un programa para poder con
 <h1 align="center"> 🔴 Demostracion</h1>
 Aqui se pueden ver todas las caracteristicas que tiene el programa, desde registrar a los huespedes y sus reservas hasta buscar, editar y borrarlos de la base de datos.
 
+[![Alt text](https://img.youtube.com/vi/OZGkz9YAwLw/0.jpg)](https://www.youtube.com/watch?v=OZGkz9YAwLw)
+
 <h1 align="center">🔍 Presentacion del programa</h1>
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210125107-af07f676-91d5-4e6d-b689-4a55840ef480.png">
@@ -83,9 +85,6 @@ Para obtener la reserva y sus huespedes podemos usar el <Strong>Id de reserva o 
 <p align="center">
 <img width="700" heigth="auto" src="https://user-images.githubusercontent.com/105408069/210199444-99c84ac3-33a9-4b5e-9ac6-c5f267461b8b.png">
 <p>
-
-
-
 
      
 ## 🖥️ Tecnologías Utilizadas:
